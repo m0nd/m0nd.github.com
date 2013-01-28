@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: 
+
+Sitemap: http://m0nd.github.com/sitemap.xml 
