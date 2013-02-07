@@ -7,7 +7,7 @@ title: The Mind of M0nd
 subtitle: The ramblings of Raymond Broome
 author: Raymond Broome
 simple_search: http://google.com/search
-description: A blog about philosophy, web development, skateboarding and... whatever else
+description: A blog about life, web development, and... whatever else
 
 # Default date format is "ordinal" (resulting in "July 22nd 2007")
 # You can customize the format as defined in
@@ -27,17 +27,17 @@ email:
 
 # If publishing to a subdirectory as in http://site.com/project set 'root: /project'
 root: /
-permalink: /:title/
+permalink: /blog/:title/
 source: source
 destination: public
 plugins: plugins
 code_dir: downloads/code
-category_dir: categories
+category_dir: blog/categories
 markdown: rdiscount
 pygments: false # default python pygments have been replaced by pygments.rb
 
 paginate: 10          # Posts per page on the blog index
-pagination_dir:       # Directory base for pagination URLs eg. /blog/page/2/;
+pagination_dir: blog  # Directory base for pagination URLs eg. /blog/page/2/;
 recent_posts: 5       # Posts in the sidebar Recent Posts section
 excerpt_link: "Read more &rarr;"  # "Continue reading" link text at the bottom of excerpted articles
 
@@ -89,8 +89,8 @@ delicious_user: m0nd
 delicious_count: 3
 
 # Disqus Comments
-disqus_short_name:
-disqus_show_comment_count: false
+disqus_short_name: m0nd.disqus.com
+disqus_show_comment_count: true
 
 # Google Analytics
 google_analytics_tracking_id:
