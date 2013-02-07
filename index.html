@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>From the Mind of M0nd</title>
+  <title>The Mind of M0nd</title>
   <meta name="author" content="Raymond Broome">
 
   
-  <meta name="description" content="Blog Archives Recent Posts GitHub Repos Status updating&#8230; @m0nd on GitHub $.domReady(function(){ if (!window.jXHR){ var jxhr = document. &hellip;">
+  <meta name="description" content="While working on a bigger issue, I realized I needed a way to get the outer HTML of an element using jQuery, but since there&#8217;s no native jQuery &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -24,7 +24,7 @@
   <script src="/javascripts/modernizr-2.0.js"></script>
   <script src="/javascripts/ender.js"></script>
   <script src="/javascripts/octopress.js" type="text/javascript"></script>
-  <link href="/atom.xml" rel="alternate" title="From the Mind of M0nd" type="application/atom+xml">
+  <link href="/atom.xml" rel="alternate" title="The Mind of M0nd" type="application/atom+xml">
   <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
 <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
@@ -35,9 +35,9 @@
 
 <body   >
   <header role="banner"><hgroup>
-  <h1><a href="/">From the Mind of M0nd</a></h1>
+  <h1><a href="/">The Mind of M0nd</a></h1>
   
-    <h2>(the ramblings of Raymond Broome)</h2>
+    <h2>The ramblings of Raymond Broome</h2>
   
 </hgroup>
 
@@ -65,6 +65,70 @@
       <div class="blog-index">
   
   
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/get-outerhtml-with-jquery/">Get outerHTML With jQuery</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-02-07T14:25:00-04:00" pubdate data-updated="true">Feb 7<span>th</span>, 2013</time>
+        
+         | <a href="/blog/get-outerhtml-with-jquery/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>While working on a bigger issue, I realized I needed a way to get the outer HTML of an element using jQuery, but since there&#8217;s no native jQuery functionality to do that I searched around for various people&#8217;s suggestions. The two main ones are basically:</p>
+
+<h4>Use the native outerHTML property</h4>
+
+<p><code>$([selector])[0].outerHTML</code> or <code>$([selector]).get(0).outerHTML</code>. This property is supported by all browsers at this point (Firefox was the last to catch up with FF11 last year)</p>
+
+<h4>Create a temporary Parent</h4>
+
+<p><code>$('&lt;div&gt;').append($([selector]).clone()).html</code>. This one is mainly used as a fallback for older browsers with no support for the outerHTML property (more or less just FF11 and under)</p>
+
+<p>I decided to incorporate both techniques into a neat little jQuery plugin. Here&#8217;s a gist of it&#8230;</p>
+
+<div><script src='https://gist.github.com/4728750.js'></script>
+<noscript><pre><code>/* 
+ * Full example here: http://jsfiddle.net/m0nd/rZxhT/
+ */
+
+jQuery.fn.outerHtml = function(newHtml){
+    // if it's passed, return the replacement outer HTML
+    // otherwise, get the outerHTML and return it
+    // IE, Chrome, Safari &amp; FF 11+ will comply with first method
+    // all others (FF &lt; 11) will use fall-back for cloning
+  return newHtml ? this.replaceWith(newHtml) : ( this[0].outerHTML || jQuery('&lt;div&gt;').append(clone(this)).remove().html() );
+};</code></pre></noscript></div>
+
+
+
+</div>
+  
+  
+
+
+    </article>
+  
   <div class="pagination">
     
     <a href="/blog/archives">Blog Archives</a>
@@ -76,6 +140,10 @@
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/get-outerhtml-with-jquery/">Get outerHTML with jQuery</a>
+      </li>
     
   </ul>
 </section>
@@ -158,6 +226,19 @@
 
 </footer>
   
+
+<script type="text/javascript">
+      var disqus_shortname = 'm0nd.disqus.com';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
 
 
 

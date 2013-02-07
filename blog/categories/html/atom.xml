@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[The Mind of M0nd]]></title>
-  <link href="http://m0nd.github.com/atom.xml" rel="self"/>
+  <title><![CDATA[Category: html | The Mind of M0nd]]></title>
+  <link href="http://m0nd.github.com/blog/categories/html/atom.xml" rel="self"/>
   <link href="http://m0nd.github.com/"/>
   <updated>2013-02-07T15:07:13-04:00</updated>
   <id>http://m0nd.github.com/</id>
@@ -18,7 +18,7 @@
     <link href="http://m0nd.github.com/blog/get-outerhtml-with-jquery/"/>
     <updated>2013-02-07T14:25:00-04:00</updated>
     <id>http://m0nd.github.com/blog/get-outerhtml-with-jquery</id>
-    <content type="html"><![CDATA[<p>While working on a bigger issue, I realized I needed a way to get the outer HTML of an element using jQuery, but since there&#8217;s no native jQuery functionality to do that I searched around for various people&#8217;s suggestions. The two main ones are basically:</p>
+    <content type="html"><![CDATA[<p>While working on a bigger issue, I realized I needed a way to get the outer HTML of an element using jQuery, but since there's no native jQuery functionality to do that I searched around for various people's suggestions. The two main ones are basically:</p>
 
 <h4>Use the native outerHTML property</h4>
 
@@ -28,9 +28,9 @@
 
 <p><code>$('&lt;div&gt;').append($([selector]).clone()).html</code>. This one is mainly used as a fallback for older browsers with no support for the outerHTML property (more or less just FF11 and under)</p>
 
-<p>I decided to incorporate both techniques into a neat little jQuery plugin. Here&#8217;s a gist of it&#8230;</p>
+<p>I decided to incorporate both techniques into a neat little jQuery plugin. Here's a gist of it...</p>
 
-<div><script src='https://gist.github.com/4728750.js'></script>
+<p><div><script src='https://gist.github.com/4728750.js'></script>
 <noscript><pre><code>/* 
  * Full example here: http://jsfiddle.net/m0nd/rZxhT/
  */
@@ -42,9 +42,7 @@ jQuery.fn.outerHtml = function(newHtml){
     // all others (FF &lt; 11) will use fall-back for cloning
   return newHtml ? this.replaceWith(newHtml) : ( this[0].outerHTML || jQuery('&lt;div&gt;').append(clone(this)).remove().html() );
 };</code></pre></noscript></div>
-
-
-
+</p>
 ]]></content>
   </entry>
   
