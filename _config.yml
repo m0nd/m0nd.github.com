@@ -65,7 +65,7 @@ github_skip_forks: true
 
 # Twitter
 twitter_user: m0nd
-twitter_tweet_count: 4
+twitter_tweet_count: 0
 twitter_show_replies: true
 twitter_follow_button: true
 twitter_show_follower_count: false
@@ -77,7 +77,7 @@ google_plus_one_size: medium
 
 # Google Plus Profile
 # Hidden: No visible button, just add author information to search results
-googleplus_user: rbroome@gmail.com
+googleplus_user: 101178319329762695838
 googleplus_hidden: false
 
 # Pinboard
@@ -89,7 +89,7 @@ delicious_user: m0nd
 delicious_count: 3
 
 # Disqus Comments
-disqus_short_name: m0nd.disqus.com
+disqus_short_name: m0nd
 disqus_show_comment_count: true
 
 # Google Analytics
